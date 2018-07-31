@@ -4,18 +4,20 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistryModule } from './registry/registry.module';
+import {EventsModule} from './events/events.module';
 import { DemoComponent } from './demo/demo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent
+    DemoComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RegistryModule
+    RegistryModule,
+    EventsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

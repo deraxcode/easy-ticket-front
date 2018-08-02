@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class EventsService {
 
-  private regionsApi = `${environment.host}/regions/`;
+  private regionsApi = `${environment.host}/regions`;
+  private communesByRegionId = `${environment.host}/regions/communes`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -15,7 +16,7 @@ export class EventsService {
     return this.httpClient.get(this.regionsApi);
   }
 
-  findCommunesByRegion(regionId): Observable<any>{
-    return this.httpClient.get(this.regionsApi, regionId);
+  findCommunesByRegionId(regionId): Observable<any>{       
+    return this.httpClient.get(this.communesByRegionId, { params: {regionId : regionId} });
   }
 }

@@ -47,5 +47,5 @@
       <input type="text" class="form-control" formControlName="endDate" id="endDate" placeholder="dd/mm/yyyy">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Siguiente</button>
+  <button type="button" (click)="toStep2()" [disabled]="createEventFormStep1.invalid" class="btn btn-primary">Siguiente</button>  
 </form>

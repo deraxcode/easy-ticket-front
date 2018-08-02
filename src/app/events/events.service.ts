@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class EventsService {
 
   private regionsApi = `${environment.host}/regions`;
-  private communesByRegionId = `${environment.host}/regions/communes`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,7 +15,7 @@ export class EventsService {
     return this.httpClient.get(this.regionsApi);
   }
 
-  findCommunesByRegionId(regionId): Observable<any>{       
-    return this.httpClient.get(this.communesByRegionId, { params: {regionId : regionId} });
+  findCommunesByRegionId(regionId): Observable<any>{
+    return this.httpClient.get(`${this.regionsApi}/${regionId}/communes`);
   }
 }
